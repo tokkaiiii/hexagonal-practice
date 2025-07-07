@@ -13,16 +13,13 @@ public class RamenShop {
   private LocalTime closingTime;
 
   public static RamenShop register(
-      String name,
-      String address,
-      LocalTime openingTime,
-      LocalTime closingTime
+     RamenShopRegisterRequest registerRequest
   ) {
     RamenShop ramenShop = new RamenShop();
-    ramenShop.name = name;
-    ramenShop.address = address;
-    ramenShop.openingTime = openingTime;
-    ramenShop.closingTime = closingTime;
+    ramenShop.name = registerRequest.name();
+    ramenShop.address = registerRequest.address();
+    ramenShop.openingTime = registerRequest.openingTime();
+    ramenShop.closingTime = registerRequest.closingTime();
 
     ramenShop.status = OPEN;
 

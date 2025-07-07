@@ -19,13 +19,15 @@ class RamenShopTest {
     LocalTime openingTime = LocalTime.of(11, 0);
     LocalTime closingTime = LocalTime.of(22, 0);
 
-    // Act
-    RamenShop actual = RamenShop.register(
+    var registerRequest = new RamenShopRegisterRequest(
         name,
         address,
         openingTime,
         closingTime
     );
+
+    // Act
+    RamenShop actual = RamenShop.register(registerRequest);
 
     // Assert
     assertThat(getField(actual, "name")).isEqualTo(name);
